@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<descriptor xmlns="http://digimend.sourceforge.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://digimend.sourceforge.net hidrd.xsd">
+  <usage_page>consumer</usage_page>
+  <usage>consumer_consumer_control</usage>
+  <COLLECTION type="application">
+    <report_id>1</report_id>
+    <report_count>18</report_count>
+    <report_size>8</report_size>
+    <output>
+      <buffered_bytes/>
+    </output>
+  </COLLECTION>
+
+  <COLLECTION type="application">
+    <report_id>2</report_id>
+    <report_count>1</report_count>
+    <report_size>1</report_size>
+    <input>
+      <buffered_bytes/>
+    </input>
+  </COLLECTION>
+
+</descriptor>
+
+

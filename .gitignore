@@ -1,0 +1,9 @@
+.d/
+config.stamp
+*.elf
+*.o
+*.hex
+hid.c
+v-usb
+*~
+*.swp

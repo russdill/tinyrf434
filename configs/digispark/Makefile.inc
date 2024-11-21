@@ -1,0 +1,2 @@
+F_CPU = 16500000
+DEVICE = attiny85
