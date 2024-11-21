@@ -19,6 +19,8 @@
 #include <avr/wdt.h>
 #include <avr/pgmspace.h>
 #include <avr/interrupt.h>
+#include <avr/eeprom.h>
+
 #include <util/delay.h>
 
 #include <string.h>
@@ -136,6 +138,10 @@ int main(void)
 {
 #if !USB_CFG_USBINIT_CONNECT
 	unsigned char i;
+#endif
+
+#if !VUSB_USING_VME
+	OSCCAL = eeprom_read_byte(0);
 #endif
 
 	rf_usi_init();

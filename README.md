@@ -28,7 +28,9 @@ accurately specify during which frame a USB request is sent.
 The firmware is designed for use on Digispark hardware connected to a simple
 434MHz RF transmitter module such as the Sparkfun WRL-10534. The Digispark
 PB1 (MOSI) signal should be connected to the RF transmitter's data line. The
-Digispark LED will flash when data is being transmitted.
+Digispark LED will flash when data is being transmitted. When using the
+digispark build configuration (`CONFIG=digispark`) EEPROM byte 0 must be the
+oscillator calibration value for 16.5MHz operation.
 
 A config entry is also provided for use with the vmeiosis bootloader in the
 `configs/vme` path (`CONFIG=vme`).
