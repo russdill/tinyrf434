@@ -5,6 +5,6 @@ MEIOSIS_PATH=~/src/vmeiosis
 
 VMEDUDE = $(MEIOSIS_PATH)/scripts/vmedude.py $(VMEDUDE_OPTS)
 
-vme_flash: tws-bs-hid.hex
+vme_flash: $(PROJECT).hex
 	$(VMEDUDE) --enter --product RF --id-product 05df || true
 	$(VMEDUDE) -U $< --run
