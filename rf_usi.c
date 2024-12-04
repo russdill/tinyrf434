@@ -46,12 +46,15 @@ static void rf_usi_periodic(void)
 	if (!rf_bit_pat_len_1) {
 		/* Done */
 		TCCR0B = 0;
-		MOSI_DDR &= ~_BV(MOSI_BIT);
+		USICR = 0;
 	}
 }
 
 static void rf_usi_start(void)
 {
+	/* Select Three-wire mode and Timer/Counter0 Compare Match clock */
+	USICR = _BV(USIWM0) | _BV(USICS0);
+
 	USIDR = 0;
 	USIBR = 0;
 	OCR0A = rf_start(); /* Indicates length of output bit period */
@@ -60,14 +63,12 @@ static void rf_usi_start(void)
 	/* Start timer */
 	TCCR0B = TCNT0_PRESCALER_VAL;
 
-	MOSI_DDR |= _BV(MOSI_BIT);
 }
 
 static void rf_usi_init(void)
 {
-	/* Select Three-wire mode and Timer/Counter0 Compare Match clock */
-	USICR = _BV(USIWM0) | _BV(USICS0);
-
 	/* Enable clear to compare mode */
 	TCCR0A = _BV(WGM01);
+
+	MOSI_DDR |= _BV(MOSI_BIT);
 }
